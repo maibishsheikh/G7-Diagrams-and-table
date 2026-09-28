@@ -1,0 +1,33 @@
+/* src/components/shared/FloatingNumbers.css */
+.floating-symbols-container {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.floating-money-symbol {
+  position: absolute;
+  opacity: 0.15;
+  animation: floatUp 20s infinite linear;
+  user-select: none;
+  bottom: -40px;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 0.22;
+  }
+  85% {
+    opacity: 0.22;
+  }
+  100% {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
