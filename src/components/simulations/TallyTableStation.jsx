@@ -96,7 +96,8 @@ export default function TallyTableStation({ onComplete, audioEnabled }) {
                 max={act.max}
                 value={tallyCount}
                 onChange={(e) => {
-                  setTallyCount(parseInt(e.target.value));
+                  const parsed = parseInt(e.target.value, 10);
+                  setTallyCount(isNaN(parsed) ? 0 : parsed);
                   setConfirmed(false);
                 }}
                 className="station-slider"

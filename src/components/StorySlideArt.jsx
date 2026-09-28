@@ -212,7 +212,35 @@ const REGISTRY = {
   lab: ArtLab
 };
 
-export function StorySlideArt({ type }) {
+const IMAGE_MAP = {
+  messyToTidy: '/assets/images/story/story_panel_1.jpg',
+  tally: '/assets/images/story/story_panel_2.jpg',
+  pictograph: '/assets/images/story/story_panel_3.jpg',
+  bar: '/assets/images/story/story_panel_4.jpg',
+  doublebar: '/assets/images/story/story_panel_5.jpg',
+  line: '/assets/images/story/story_panel_6.jpg',
+  pie: '/assets/images/story/story_panel_7.jpg',
+  lab: '/assets/images/story/story_panel_8.jpg'
+};
+
+export function StorySlideArt({ type, alt = 'Oakridge Festival Story illustration' }) {
+  const [imgError, setImgError] = React.useState(false);
+  const imgSrc = IMAGE_MAP[type];
   const Comp = REGISTRY[type] || ArtMessyToTidy;
+
+  if (imgSrc && !imgError) {
+    return (
+      <div className="story-art-img-wrap">
+        <img
+          src={imgSrc}
+          alt={alt}
+          className="story-art-img"
+          onError={() => setImgError(true)}
+          loading="eager"
+        />
+      </div>
+    );
+  }
+
   return <Comp />;
 }

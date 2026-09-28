@@ -53,13 +53,17 @@ export default function GraphBuilderStation({ onComplete, audioEnabled }) {
     }
   }
 
-  const isMatched = val === act.target;
+  const safeVal = isNaN(val) ? 0 : val;
+  const isMatched = safeVal === act.target;
 
   // Build diagram data
   const values = act.categories.map((c, i) => {
-    if (i === act.targetIdx) return val;
-    return act.fixed[i];
+    if (i === act.targetIdx) return safeVal;
+    return (act.fixed && act.fixed[i] != null && !isNaN(act.fixed[i])) ? act.fixed[i] : 0;
   });
+
+  const scale = act.scale || 5;
+  const symbolCounts = values.map(v => Math.max(0, Math.round((Number(v) || 0) / scale)));
 
   const diagramPayload = act.type === 'bar' ? {
     mode: 'bar',
@@ -74,9 +78,10 @@ export default function GraphBuilderStation({ onComplete, audioEnabled }) {
     data: {
       categories: act.categories,
       values: values,
+      symbolCounts: symbolCounts,
       unit: act.unit,
-      symbol: act.icon,
-      scale: act.scale
+      symbol: act.icon || '📖',
+      scale: scale
     },
     highlight: act.targetIdx
   };
@@ -118,7 +123,8 @@ export default function GraphBuilderStation({ onComplete, audioEnabled }) {
                 step={act.type === 'pictograph' ? act.scale : 1}
                 value={val}
                 onChange={(e) => {
-                  setVal(parseInt(e.target.value));
+                  const parsed = parseInt(e.target.value, 10);
+                  setVal(isNaN(parsed) ? 0 : parsed);
                   setConfirmed(false);
                 }}
                 className="station-slider"

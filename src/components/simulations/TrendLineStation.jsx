@@ -55,12 +55,14 @@ export default function TrendLineStation({ onComplete, audioEnabled }) {
     }
   }
 
-  const isMatched = valA === act.targetA && valB === act.targetB;
+  const safeValA = isNaN(valA) ? 0 : valA;
+  const safeValB = isNaN(valB) ? 0 : valB;
+  const isMatched = safeValA === act.targetA && safeValB === act.targetB;
 
-  const seriesA = act.categories.map((c, i) => (i === act.targetIdx ? valA : act.fixedA[i]));
-  const seriesB = act.categories.map((c, i) => (i === act.targetIdx ? valB : act.fixedB[i]));
+  const seriesA = act.categories.map((c, i) => (i === act.targetIdx ? safeValA : (act.fixedA && act.fixedA[i] != null && !isNaN(act.fixedA[i]) ? act.fixedA[i] : 0)));
+  const seriesB = act.categories.map((c, i) => (i === act.targetIdx ? safeValB : (act.fixedB && act.fixedB[i] != null && !isNaN(act.fixedB[i]) ? act.fixedB[i] : 0)));
 
-  const seriesNames = actIdx === 0 ? ['Boys', 'Girls'] : ['Term 1', 'Term 2'];
+  const seriesNames = ['Team Blue', 'Team Gold'];
 
   return (
     <div className="station-wrap">
@@ -98,7 +100,8 @@ export default function TrendLineStation({ onComplete, audioEnabled }) {
                 max={act.max}
                 value={valA}
                 onChange={(e) => {
-                  setValA(parseInt(e.target.value));
+                  const parsed = parseInt(e.target.value, 10);
+                  setValA(isNaN(parsed) ? 0 : parsed);
                   setConfirmed(false);
                 }}
                 className="station-slider"
@@ -117,7 +120,8 @@ export default function TrendLineStation({ onComplete, audioEnabled }) {
                 max={act.max}
                 value={valB}
                 onChange={(e) => {
-                  setValB(parseInt(e.target.value));
+                  const parsed = parseInt(e.target.value, 10);
+                  setValB(isNaN(parsed) ? 0 : parsed);
                   setConfirmed(false);
                 }}
                 className="station-slider"

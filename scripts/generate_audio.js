@@ -1,8 +1,14 @@
 /* =========================================================================
    OFFLINE AUDIO GENERATION SCRIPT
-   Reads every entry in src/audioMap.js and requests narration audio from
+   Reads entries in src/audioMap.js and requests narration audio from
    ElevenLabs using the "Alice" voice (Xb7hH8MSUJpSbSDYk0k2), saving each
    result as a static .mp3 into public/assets/audio/.
+
+   Usage:
+     node scripts/generate_audio.js            # Generate missing audio files
+     node scripts/generate_audio.js --core     # Regenerate story, sim, wonder, reflect clips
+     node scripts/generate_audio.js --story    # Regenerate only story clips
+     node scripts/generate_audio.js --force    # Force regenerate all clips
    ========================================================================= */
 import fs from 'fs';
 import path from 'path';
@@ -27,16 +33,31 @@ const STYLE_SETTINGS = {
   statement:     { stability: 0.20, similarity_boost: 0.55, style: 0.50, use_speaker_boost: true }
 };
 
+const args = process.argv.slice(2);
+const FORCE_ALL = args.includes('--force');
+const FORCE_CORE = args.includes('--core') || FORCE_ALL;
+const FORCE_STORY = args.includes('--story') || FORCE_CORE;
+const FORCE_SIM = args.includes('--sim') || FORCE_CORE;
+
 function slugify(key) {
   return key.replace(/[^a-z0-9_-]/gi, '_').toLowerCase();
+}
+
+function shouldForce(key) {
+  if (FORCE_ALL) return true;
+  if (FORCE_STORY && key.startsWith('story_')) return true;
+  if (FORCE_SIM && key.startsWith('sim_')) return true;
+  if (FORCE_CORE && (key.startsWith('wonder_') || key.startsWith('reflect_'))) return true;
+  return false;
 }
 
 async function generateOne(key, entry) {
   const voiceSettings = STYLE_SETTINGS[entry.style] || STYLE_SETTINGS.statement;
   const outPath = path.join(OUT_DIR, `${slugify(key)}.mp3`);
+  const forceThis = shouldForce(key);
 
-  // Skip if file already exists and is non-empty (>1000 bytes)
-  if (fs.existsSync(outPath) && fs.statSync(outPath).size > 1000) {
+  // Skip if file already exists and is non-empty (>1000 bytes), unless force applies
+  if (!forceThis && fs.existsSync(outPath) && fs.statSync(outPath).size > 1000) {
     console.log(`⏩ Skipping existing ${slugify(key)}.mp3`);
     return;
   }
@@ -73,7 +94,11 @@ async function main() {
   fs.mkdirSync(OUT_DIR, { recursive: true });
 
   const entries = Object.entries(AUDIO_MAP);
-  console.log(`Generating ${entries.length} narration clips with ElevenLabs voice "Alice" (${VOICE_ID})...`);
+  console.log(`Checking ${entries.length} narration clips with ElevenLabs voice "Alice" (${VOICE_ID})...`);
+  if (FORCE_ALL) console.log('🔄 Mode: Force regenerating ALL clips.');
+  else if (FORCE_CORE) console.log('🔄 Mode: Force regenerating CORE clips (story, simulation, wonder, reflect).');
+  else if (FORCE_STORY) console.log('🔄 Mode: Force regenerating STORY clips.');
+  else console.log('⚡ Mode: Generating missing clips only.');
 
   let successCount = 0;
   let failCount = 0;
@@ -88,8 +113,8 @@ async function main() {
       console.error(`\n✖ ${err.message}`);
       failCount++;
     }
-    // Rate-limiting delay: 200ms
-    await new Promise(r => setTimeout(r, 200));
+    // Rate-limiting delay: 250ms
+    await new Promise(r => setTimeout(r, 250));
   }
 
   console.log(`\n🎉 Done! Successfully processed ${successCount} clips (${failCount} failures).`);

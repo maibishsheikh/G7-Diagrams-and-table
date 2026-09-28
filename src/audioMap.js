@@ -1,7 +1,8 @@
 /* =========================================================================
    AUDIO MAP — Mapping fixed text keys to audio files or speech text
-   Generated (or regenerated) by scripts/generate_audio.js using the
-   ElevenLabs "Alice" voice (Xb7hH8MSUJpSbSDYk0k2, eleven_multilingual_v2).
+   Diagrams & Tables Quest · Grade 7 Data Handling (The Oakridge Festival)
+   Characters: Leo, Emma, Alex, Maya, Barnaby the Data Owl
+   Generated for ElevenLabs voice narration and fallback speech synthesis
    ========================================================================= */
 
 import { WORLD_QUESTIONS } from './topicData.js';
@@ -14,160 +15,170 @@ export const AUDIO_MAP = {
     file: "/assets/audio/wonder_1.mp3"
   },
 
-  // STORY PHASE
+  // STORY PHASE — The Oakridge Festival Narrative
   "story_1": {
-    text: "Every day we collect information — favourite snacks, weather, test scores, traffic on a road. But raw numbers scattered on paper are hard to read. How do we organize that information so anyone can understand it at a glance?",
+    text: "The sun rose over Oakridge Academy for the Grand Festival! Leo was in charge of the fruit refreshment stall, but chaos erupted immediately! Orders were scribbled randomly on scrap paper. Leo gasped: 'I can't tell how many apples or bananas to slice! It's a complete jumble!' Barnaby the Data Owl swooped down: 'Hoot! Don't panic, Leo. Raw data without structure is just noisy chaos. When organized into a table, data tells an instant, crystal-clear story!' Emma hurried over with a fresh chalkboard: 'Let's bring order to this festival!'",
     style: "statement",
     file: "/assets/audio/story_1.mp3"
   },
   "story_2": {
-    text: "The first step is a frequency table. We use tally marks to count how often each item appears, then write the total as a frequency. A table turns a messy list into neat rows and columns!",
+    text: "Emma showed Leo the time-tested secret of tallying: 'Instead of writing fruit names over and over, draw a tally stroke for each order: one, two, three, four... and on the fifth order, slash diagonally across the group to close the gate: five! Count by fives: five, ten, plus two singles is twelve apples!' Barnaby hoots: 'Splendid! The count of how often an item occurs is called its FREQUENCY. In a Frequency Table, tallies convert directly into exact numbers!'",
     style: "emphasis",
     file: "/assets/audio/story_2.mp3"
   },
   "story_3": {
-    text: "A pictograph uses small pictures or symbols to represent data. Every symbol stands for a fixed amount, shown in a key. If one symbol equals five books, then three symbols mean fifteen books in total!",
+    text: "Over in the festival courtyard, Alex was tracking the three-week Reading Marathon. Alex was sketching tiny book doodles on a huge board. 'My fingers ache! Week 1 had 20 books, Week 2 had 30, and Week 3 had 25. Drawing 75 doodles will take until midnight!' Barnaby perched on Alex's easel: 'Use a Pictograph, Alex! A single picture symbol represents a set quantity — we call this the KEY or SCALE.' Barnaby set the key: one book equals 5 books. Alex cheered: 'Aha! For Week 1 with 20 books, 20 divided by 5 equals 4 symbols! The key saves hours of drawing!'",
     style: "statement",
     file: "/assets/audio/story_3.mp3"
   },
   "story_4": {
-    text: "A bar graph uses rectangular bars to compare categories. Taller bars mean bigger values! We can quickly see which category is the most popular and which is the least, just by comparing bar heights.",
+    text: "At the sports arena, Maya recorded votes for the festival tournament: Football received 8 votes, Basketball got 6, Tennis got 3, and Swimming got 5. Principal Vance rushed over: 'I need to announce the champion event over the loudspeakers in ten seconds! Who won?' Emma grabbed colored chalk: 'We need a Bar Graph! Categories along the horizontal X-axis, and equal scale increments along the vertical Y-axis.' Barnaby reminded them: 'Keep every bar the exact same width! Look at that: the Football bar towers up to 8 — that's the MODE, the most popular choice!'",
     style: "emphasis",
     file: "/assets/audio/story_4.mp3"
   },
   "story_5": {
-    text: "A double bar graph places two bars side by side for each category, perfect for comparing two groups, like boys and girls, or this year and last year, at the very same time!",
+    text: "The excitement reached fever pitch during the Great House Championship: Team Blue versus Team Gold! Both houses battled in Relay, Tug-of-War, and Obstacle Course. Emma smiled: 'That's why we build a Double Bar Graph! For each event, place two bars side-by-side: cyan for Team Blue, pink for Team Gold.' Barnaby added: 'A double bar graph must have a Legend, so everyone knows which house owns which color. In Relay, Blue scored 7 and Gold scored 10. The side-by-side comparison makes direct evaluation instantaneous!'",
     style: "emphasis",
     file: "/assets/audio/story_5.mp3"
   },
   "story_6": {
-    text: "A line graph connects data points with a line to show how something changes over time, like temperature across a week. Rising lines mean increases, falling lines mean decreases!",
+    text: "Inside the Science Pavilion, Maya set up digital sensors to track festival temperature from 9 AM to 3 PM: 18 degrees in the morning, climbing to 22 at 11 AM, peaking at 28 degrees at 1 PM, and dipping to 24 by 3 PM. Leo asked: 'Should we draw bars for every hour?' Barnaby shook his head: 'Time is continuous, Leo! For continuous change over time, a Line Graph is supreme. Connect points with lines! Rising slopes show warming, falling slopes show cooling!'",
     style: "emphasis",
     file: "/assets/audio/story_6.mp3"
   },
   "story_7": {
-    text: "A pie chart, or circle graph, shows how a whole is divided into parts. Each slice's angle is found using a simple formula! Angle equals the category's value divided by the total, multiplied by three hundred sixty degrees.",
+    text: "As sunset bathed the academy in gold, the student council gathered to finalize the festival budget of 360 dollars. Maya needed to present the budget on a circular wheel. Barnaby spread his wings: 'A complete circle has 360 degrees! Use the Master Angle Formula: Central Angle equals Category Value divided by Total Value, multiplied by 360 degrees! If Music gets 90 dollars out of 360: 90 divided by 360 times 360 degrees equals 90 degrees — an exact quarter-circle right angle!'",
     style: "encouragement",
     file: "/assets/audio/story_7.mp3"
   },
   "story_8": {
-    text: "Fantastic! You've learned how tables, pictographs, bar graphs, line graphs, and pie charts each tell data's story in their own way. Now step into the simulation lab to build, read, and decode diagrams yourself!",
+    text: "Thanks to Leo, Emma, Alex, Maya, and Barnaby, the Oakridge Grand Festival was the most successful event in school history! Principal Vance awarded the team the Silver Compass of Data. Barnaby turned toward you with twinkling eyes: 'Now it's your turn, Data Detective! Step into our 4 interactive simulation labs: tally Leo's fruit orders, build the sports bar graph and library pictograph, compare the championship teams, and slice the festival budget wheel! Are you ready to simulate?'",
     style: "celebration",
     file: "/assets/audio/story_8.mp3"
   },
 
-  // SIMULATION GUIDANCE
+  // SIMULATION GUIDANCE — Aligned with the Festival Story
   "sim_1": {
-    text: "Welcome to the Table and Tally Lab! Tap to add tally marks, build a frequency table, and answer questions straight from the data you collect!",
+    text: "Welcome to Leo's Fruit Stall and Tally Lab! Count orders in bundles of 5, build complete frequency tables, and help Leo keep the festival stall running smoothly!",
     style: "encouragement",
     file: "/assets/audio/sim_1.mp3"
   },
   "sim_1_act_1_desc": {
-    text: "Nova is counting votes for the class fruit survey. Slide to add tally marks for Apples, then click Count Tallies to build the frequency table!",
+    text: "Hundreds of students want fruit! Slide to add tally marks for Apples to reach the target of 12 orders, then click verify to build Leo's frequency table!",
     style: "statement",
     file: "/assets/audio/sim_1_act_1_desc.mp3"
   },
   "sim_1_act_1_hint": {
-    text: "Every group of 5 tallies gets one diagonal line. Count the full groups of 5, then add any leftovers!",
+    text: "Every bundle of 5 tallies has four vertical strokes and one diagonal cross-slash: 卌. 12 tallies equals two full bundles of 5 plus two single strokes!",
     style: "thinking",
     file: "/assets/audio/sim_1_act_1_hint.mp3"
   },
   "sim_1_act_2_desc": {
-    text: "The class kept a tally of the weather all month. Slide to set how many Rainy days were tallied, then confirm the count!",
+    text: "Maya recorded festival preparation weather all month. Slide to set how many Rainy prep days were tallied to reach the target of 9 days, then confirm the count!",
     style: "statement",
     file: "/assets/audio/sim_1_act_2_desc.mp3"
   },
   "sim_1_act_2_hint": {
-    text: "Match the tally count to the target shown in the activity card!",
+    text: "Match the tally count to 9 days — that is 1 bundle of 5 plus 4 single tallies!",
     style: "thinking",
     file: "/assets/audio/sim_1_act_2_hint.mp3"
   },
   "sim_1_act_3_desc": {
-    text: "New members are signing up for reading groups. Slide to tally the Non-fiction sign-ups, then reveal the full frequency table!",
+    text: "Alex needs to organize reading club sign-ups for the festival. Slide to tally Non-fiction members to reach the target of 15 members, then reveal the frequency table!",
     style: "statement",
     file: "/assets/audio/sim_1_act_3_desc.mp3"
   },
   "sim_1_act_3_hint": {
-    text: "The frequency is simply the total tally count for that row!",
+    text: "15 tallies equals exactly 3 full bundles of 5!",
     style: "thinking",
     file: "/assets/audio/sim_1_act_3_hint.mp3"
   },
 
   "sim_2": {
-    text: "Welcome to the Graph Builder Lab! Drag the sliders to set bar heights and pictograph symbols so they match the given data table exactly!",
+    text: "Welcome to the Festival Showcase Arena! Build bar heights and pictograph symbols to display festival survey results clearly!",
     style: "statement",
     file: "/assets/audio/sim_2.mp3"
   },
   "sim_2_act_1_desc": {
-    text: "120 students voted for their favourite sport. Drag the bar height slider until the Football bar matches the survey result of 8 votes!",
+    text: "Principal Vance needs the festival sports vote! Drag the slider until the Football bar matches the survey count of 8 votes!",
     style: "statement",
     file: "/assets/audio/sim_2_act_1_desc.mp3"
   },
   "sim_2_act_1_hint": {
-    text: "Slide the bar up until it aligns with 8 on the vertical scale!",
+    text: "Slide the bar up until the value shows 8 votes on the scale! That's the mode of our sports survey!",
     style: "thinking",
     file: "/assets/audio/sim_2_act_1_hint.mp3"
   },
   "sim_2_act_2_desc": {
-    text: "Each picture symbol represents 5 books. Drag the slider to place enough symbols to show that the Library read a total of 30 books this week!",
+    text: "In Alex's Reading Marathon, each book symbol represents 5 books. Drag the slider to place enough symbols to show that Week 2 completed 30 books!",
     style: "statement",
     file: "/assets/audio/sim_2_act_2_desc.mp3"
   },
   "sim_2_act_2_hint": {
-    text: "Divide 30 books by 5 books per symbol. You need 6 symbols!",
+    text: "Divide 30 books by 5 books per symbol: 30 divided by 5 equals 6 symbols needed!",
     style: "thinking",
     file: "/assets/audio/sim_2_act_2_hint.mp3"
   },
   "sim_2_act_3_desc": {
-    text: "Build a double bar graph! Drag each slider so Boys equals 7 votes and Girls equals 10 votes for Chips.",
+    text: "Build a double bar graph for the House Championship! Drag each slider so Team Blue equals 7 votes and Team Gold equals 10 votes for Chips.",
     style: "statement",
     file: "/assets/audio/sim_2_act_3_desc.mp3"
   },
   "sim_2_act_3_hint": {
-    text: "Set the cyan slider for Boys to 7 and the pink slider for Girls to 10!",
+    text: "Set the cyan slider for Team Blue to 7 and the pink slider for Team Gold to 10!",
     style: "thinking",
     file: "/assets/audio/sim_2_act_3_hint.mp3"
   },
+  "sim_2_act_4_desc": {
+    text: "Compare Obstacle Course points! Set Team Blue to 65 points and Team Gold to 80 points on the dual bar chart.",
+    style: "statement",
+    file: "/assets/audio/sim_2_act_4_desc.mp3"
+  },
+  "sim_2_act_4_hint": {
+    text: "Set Team Blue to 65 and Team Gold to 80 to observe the 15-point difference!",
+    style: "thinking",
+    file: "/assets/audio/sim_2_act_4_hint.mp3"
+  },
 
   "sim_3": {
-    text: "Welcome to the Pie Chart and Inverse Solver Lab! Given a slice of the data, work backwards to find the missing angle, percentage, or category value!",
+    text: "Welcome to the Festival Council Budget Lab! Calculate slice angles, category amounts, and circle percentages working forwards and backwards!",
     style: "question",
     file: "/assets/audio/sim_3.mp3"
   },
   "sim_3_act_1_desc": {
-    text: "180 students voted for their favourite movie genre. The Comedy slice represents 45 votes. Work backwards to find its angle!",
+    text: "Out of a 180 dollar festival entertainment budget, the Carnival Music stage receives 45 dollars. Calculate its central angle in degrees!",
     style: "question",
     file: "/assets/audio/sim_3_act_1_desc.mp3"
   },
   "sim_3_act_1_hint": {
-    text: "Angle equals value divided by total multiplied by 360 degrees. 45 divided by 180 times 360 equals 90 degrees!",
+    text: "Central Angle equals value divided by total multiplied by 360 degrees: 45 divided by 180 times 360 equals 90 degrees!",
     style: "thinking",
     file: "/assets/audio/sim_3_act_1_hint.mp3"
   },
   "sim_3_act_2_desc": {
-    text: "A school recycling pie chart's Paper slice measures 120 degrees out of a total of 90 kg collected. Work backwards to find its value!",
+    text: "The festival eco-station pie chart shows Paper at 120 degrees out of 90 kg total waste collected. Work backwards to find its value in kg!",
     style: "question",
     file: "/assets/audio/sim_3_act_2_desc.mp3"
   },
   "sim_3_act_2_hint": {
-    text: "Value equals angle divided by 360 degrees multiplied by total. 120 divided by 360 times 90 equals 30 kg!",
+    text: "Value equals angle divided by 360 degrees multiplied by total: 120 divided by 360 times 90 equals 30 kg!",
     style: "thinking",
     file: "/assets/audio/sim_3_act_2_hint.mp3"
   },
   "sim_3_act_3_desc": {
-    text: "Out of 80 students surveyed, 20 chose Popcorn as their favourite snack. Work backwards to find the percentage!",
+    text: "Out of 80 festival visitors surveyed, 20 chose Fresh Popcorn. Work backwards to find its percentage of the circle graph!",
     style: "question",
     file: "/assets/audio/sim_3_act_3_desc.mp3"
   },
   "sim_3_act_3_hint": {
-    text: "Percentage equals value divided by total multiplied by 100 percent. 20 divided by 80 times 100 equals 25 percent!",
+    text: "Percentage equals value divided by total multiplied by 100 percent: 20 divided by 80 times 100 equals 25 percent!",
     style: "thinking",
     file: "/assets/audio/sim_3_act_3_hint.mp3"
   },
 
   // REFLECT PHASE
   "reflect_1": {
-    text: "Great work completing the module! In your own words, explain how a table, a graph, or a pie chart helps you understand data more easily, and give one real example.",
+    text: "Congratulations on conquering the Oakridge Festival Data Quest! In your own words, explain how frequency tables, pictographs, bar graphs, and pie charts each help people understand data more easily, and share one real-life example.",
     style: "thinking",
     file: "/assets/audio/reflect_1.mp3"
   }

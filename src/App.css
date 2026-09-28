@@ -29,6 +29,13 @@
   box-sizing: border-box;
 }
 
+.intro-phase-content {
+  padding-top: 0 !important;
+  height: 100dvh !important;
+  max-height: 100dvh !important;
+  overflow: hidden !important;
+}
+
 /* ─── Header & Navigation ────────────────────────────────────────────────── */
 .app-header {
   position: fixed;
@@ -46,11 +53,23 @@
   box-sizing: border-box;
 }
 
-/* Top-Left Action Bar (Home + Audio Toggle) */
+/* Top-Left Action Bar (Home Button) */
 .header-top-left {
   position: absolute;
   top: 8px;
   left: 14px;
+  z-index: 200;
+  pointer-events: auto;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Top-Right Action Bar (Audio Toggle) */
+.header-top-right {
+  position: absolute;
+  top: 8px;
+  right: 14px;
   z-index: 200;
   pointer-events: auto;
   display: flex;
@@ -91,6 +110,7 @@
   transform: translateY(0);
 }
 
+.nav-audio-btn,
 .top-left-audio-btn {
   width: 38px;
   height: 38px;
@@ -111,6 +131,7 @@
   pointer-events: auto;
 }
 
+.nav-audio-btn:hover,
 .top-left-audio-btn:hover {
   background: rgba(255, 193, 7, 0.2);
   border-color: var(--gold);
@@ -118,15 +139,17 @@
   transform: translateY(-1px) scale(1.05);
 }
 
+.nav-audio-btn:active,
 .top-left-audio-btn:active {
   transform: translateY(0) scale(0.96);
 }
 
-/* Audio button floating alone on Intro screen */
+/* Audio button floating on Intro screen (top-right) */
 .intro-audio-btn {
   position: fixed;
   top: 12px;
-  left: 14px;
+  right: 14px;
+  left: auto;
   z-index: 220;
 }
 
@@ -154,11 +177,17 @@
     left: 8px;
     gap: 6px;
   }
+  .header-top-right {
+    top: 6px;
+    right: 8px;
+    gap: 6px;
+  }
   .home-btn {
     padding: 4px 10px;
     font-size: 0.82rem;
     min-height: 32px;
   }
+  .nav-audio-btn,
   .top-left-audio-btn {
     width: 32px;
     height: 32px;
@@ -183,6 +212,11 @@
     left: 6px;
     gap: 4px;
   }
+  .header-top-right {
+    top: 5px;
+    right: 6px;
+    gap: 4px;
+  }
   .home-btn {
     padding: 4px 8px;
     min-height: 30px;
@@ -190,6 +224,7 @@
   .home-btn .home-text {
     display: none;
   }
+  .nav-audio-btn,
   .top-left-audio-btn {
     width: 30px;
     height: 30px;

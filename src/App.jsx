@@ -215,7 +215,7 @@ export default function App() {
 
       {state.phase !== 'intro' && (
         <header className="app-header">
-          {/* Top-left controls: Home button and Audio Toggle */}
+          {/* Top navigation controls: Home (left) and Audio Toggle (right) */}
           <TopBar
             audioEnabled={state.audioEnabled}
             onToggleAudio={() => dispatch({ type: 'TOGGLE_AUDIO' })}
@@ -227,15 +227,13 @@ export default function App() {
             <ProgressMap
               currentPhase={state.phase}
               phaseComplete={state.phaseComplete}
-              audioEnabled={state.audioEnabled}
-              onToggleAudio={() => dispatch({ type: 'TOGGLE_AUDIO' })}
               onSelectPhase={(pKey) => dispatch({ type: 'SET_PHASE', payload: pKey })}
             />
           </div>
         </header>
       )}
 
-      <main className="phase-content">
+      <main className={`phase-content ${state.phase === 'intro' ? 'intro-phase-content' : ''}`}>
         {state.phase === 'intro'    && <IntroScreen   state={state} dispatch={dispatch} />}
         {state.phase === 'wonder'   && <WonderPhase   state={state} dispatch={dispatch} />}
         {state.phase === 'story'    && <StoryPhase    state={state} dispatch={dispatch} />}
